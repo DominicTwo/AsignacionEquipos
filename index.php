@@ -17,7 +17,7 @@
       <form action="#">
         <input type="text" placeholder="Usuario">
         <input type="password" placeholder="Contraseña">
-        <button type="submit">Entrar</button>
+        <button type="submit">Entrar :D</button>
       </form>
     </div>
   </div>
