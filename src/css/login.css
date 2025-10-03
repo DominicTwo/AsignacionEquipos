@@ -1,0 +1,72 @@
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Panel izquierdo */
+    .left {
+      flex: 1;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .left img {
+      max-width: 70%;
+    }
+
+    /* Panel derecho */
+    .right {
+      flex: 1;
+      background: #864E95; /* Morado de tu diseño */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-box {
+      background: #F5F5F5;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 300px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .login-box h2 {
+      color: #7CB6C2;
+      font-weight: normal;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 0.5rem 0;
+      border: 1px solid #E0E0E0;
+      border-radius: 5px;
+    }
+
+    .login-box button {
+      width: 100%;
+      background: #7CB6C2;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      margin-top: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background: #5a6d75;
+    }
