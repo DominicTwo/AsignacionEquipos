@@ -26,7 +26,7 @@
     /* Panel derecho */
     .right {
       flex: 1;
-      background: #864E95; /* Morado de tu diseño */
+      background: #864E95;
       display: flex;
       align-items: center;
       justify-content: center;
