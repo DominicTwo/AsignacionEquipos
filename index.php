@@ -24,5 +24,7 @@
       document.getElementById("btnLogin").disabled = (user === "" || pass === "");
     }
   </script>
-  </body>
-</html>
+<?php 
+  $titlePage = 'Iniciar Sesión';
+  require __DIR__ . '/src/templates/FooterHTML.php';
+?>
