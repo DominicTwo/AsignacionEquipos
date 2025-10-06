@@ -67,6 +67,6 @@
       cursor: pointer;
     }
 
-    .login-box button:hover {
-      background: #5a6d75;
+    .login-box button:disabled {
+      background: #ccc; cursor: not-allowed;
     }
