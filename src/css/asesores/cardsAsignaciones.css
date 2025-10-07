@@ -1,0 +1,95 @@
+.content-wrapper {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: #000;
+}
+
+/* Secciones */
+.seccion {
+  margin-bottom: 50px;
+}
+
+.seccion h2 {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  color: #7c4d8b;
+  border-bottom: 2px solid #79c5c3;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Filas de cards */
+.fila {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Cards */
+.card {
+  background-color: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 350px;
+  text-align: left;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-header h3 {
+  color: #5b9ea3;
+  font-size: 1.1em;
+}
+
+.estatus {
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.estatus.completado {
+  background-color: #79c5c3;
+}
+
+.estatus.proceso {
+  background-color: #5b9ea3;
+}
+
+.estatus.pendiente {
+  background-color: #d19b3d;
+}
+
+/* Contenido */
+.card ul {
+  list-style: none;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.card li strong {
+  color: #000;
+}
+
+.nota {
+  background-color: #f1fafa;
+  border-left: 4px solid #79c5c3;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 0.95em;
+  color: #555;
+}
