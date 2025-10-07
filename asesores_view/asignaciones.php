@@ -20,7 +20,7 @@
       <div class="dropdown">
         <button class="dropdown-btn">Asesor ▾</button>
         <div class="dropdown-content">
-          <a href="#">Cerrar sesión</a>
+          <a href="/cerrarSesion.php">Cerrar sesión</a>
         </div>
       </div>
     </div>
