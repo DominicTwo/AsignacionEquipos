@@ -1,4 +1,7 @@
 <?php 
+
+  require __DIR__ . '/db/db.php';
+  
   $titlePage = 'Iniciar Sesión';
   require __DIR__ . '/src/templates/HeaderHTML.php';
 ?>
