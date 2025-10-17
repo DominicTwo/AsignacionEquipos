@@ -28,6 +28,5 @@
     }
   </script>
 <?php 
-  $titlePage = 'Iniciar Sesión';
   require __DIR__ . '/src/templates/FooterHTML.php';
 ?>
