@@ -25,34 +25,7 @@ body {
   
   scroll-behavior: smooth;    
 }
-/* Header Styles */
-.header-main-sistemas {
-    top: 10px;
-    margin: 10px;
-    height: auto;
-    width: 80%;
-    padding: 10px;              
-    text-align: center;
 
-    border-radius: 10px;
-    background-color:#F5F5F5;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-
-
-}
-
-.nav-main-sistemas {
-    display: flex;
-    justify-content: left;
-    padding-left: 5%;
-    padding-right: 5%;
-    gap: 5%;                  
-}
-
-.nav-main-sistemas a {
-    text-decoration: none;     
-    color:#9f9f9f;
-}
 .main-main-sistemas {
     margin-top: 20px;
     padding: 10px;              
