@@ -5,10 +5,10 @@
     <div class="header-right">
       <a class="btn-asignaciones" href="/asesores_view/asignaciones.php">Mis Asignaciones</a>
       <div class="dropdown">
-        <button class="dropdown-btn">Asesor ▾</button>
+        <button class="dropdown-btn">Diana Laura ▾</button>
         <div class="dropdown-content">
           <a href="/logOut.php">Cerrar sesión</a>
         </div>
       </div>
     </div>
-  </header>
+</header>

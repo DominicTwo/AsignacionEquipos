@@ -70,3 +70,30 @@
     .login-box button:disabled {
       background: #ccc; cursor: not-allowed;
     }
+    /* --- CSS PARA MOSTRAR/OCULTAR CONTRASEÑA --- */
+
+/* 1. Contenedor relativo para posicionar el ícono dentro */
+.password-container {
+  position: relative;
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+/* 2. Ajusta el input de contraseña */
+.password-container input[type="password"],
+.password-container input[type="text"] {
+  width: 100%;
+  /* Añade padding a la derecha para que el texto no se tape con el ícono */
+  padding-right: 40px; 
+  /* Asegura que el padding no afecte el ancho total */
+  box-sizing: border-box; 
+}
+
+/* 3. Estilo y posición del ícono */
+.toggle-icon {
+  position: absolute;
+  right: 10px; /* 10px desde el borde derecho */
+  top: 50%;    /* Centrado verticalmente */
+  transform: translateY(-50%); /* Ajuste fino del centrado */
+  cursor: pointer; /* Muestra una "manita" al pasar el mouse */
+  user-select: none; /* Evita que el ícono se pueda seleccionar como texto */
+}
