@@ -1,4 +1,5 @@
 <?php
+require '../src/templates/NavBar.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
