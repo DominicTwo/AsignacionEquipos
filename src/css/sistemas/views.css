@@ -1,0 +1,113 @@
+:root {
+  --color-principal: #79d45e;
+  --color-secundario: #7cb6c2;
+  --color-fondo: #F5F5F5;
+  --color-borde: #E0E0E0;
+  --color-texto: #333;
+  --color-nota: #94e369dc; 
+}
+
+
+body {
+  margin: 0;                  
+  padding: 0;                 
+  box-sizing: border-box;     
+  font-family: 'Inter', sans-serif; 
+  font-size: 16px;            
+  line-height: 1.5;           
+  color: #222;                
+  
+  min-height: 100vh;          
+  display: flex;
+  align-items: center;          
+  flex-direction: column;
+  padding: 20px;     
+  
+  scroll-behavior: smooth;    
+}
+
+.main-view-sistemas {
+    margin-top: 20px;
+    padding: 10px;              
+    text-align: center;
+    align-items: center;
+}
+
+
+.section-main-view {
+  padding: 10px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.titulo-asignaciones {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--color-principal);
+  margin-bottom: 15px;
+}
+
+/* --- Contenedor de cards (3 columnas fijas) --- */
+.contenedor-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  grid-auto-rows: minmax(250px, auto); 
+}
+
+/* --- Estilo de cada tarjeta --- */
+.card-asignacion {
+  background-color: #fff;
+  border: 1px solid var(--color-borde);
+  border-left: 6px solid var(--color-principal);
+  border-radius: 3px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card-asignacion:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Columnas de datos --- */
+.card-asignacion .info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card-asignacion .columna {
+  flex: 1 1 45%;
+}
+
+.card-asignacion p {
+  margin: 6px 0;
+  font-size: 12px;
+  text-align: left;
+}
+
+.card-asignacion strong {
+  color: var(--color-principal);
+}
+
+/* --- Descripción como "nota" --- */
+.card-asignacion .descripcion {
+  background-color: rgba(162, 213, 213, 0.2); /* Fondo sutil */
+  border-left: 4px solid var(--color-nota); /* Borde lateral */
+  padding: 10px 15px;
+  font-size: 12px;
+  font-style: italic;
+  color: #555;
+  border-radius: 4px;
+  line-height: 1.5;
+}
+
