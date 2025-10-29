@@ -1,57 +1,71 @@
-body {
-  margin: 0;                  
-  padding: 0;                 
-  box-sizing: border-box;     
-  font-family: 'Inter', sans-serif; 
-  font-size: 16px;            
-  line-height: 1.5;           
-  color: #222;                
-  
-  min-height: 100vh;          
+:root {
+  --color1: #7c4d8b;;
+  --color2: #f3d7fd;
+  --color3: #e74c3c;
+  --color4: #f5f5f5;
+  --color5: #333333;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #222;
+
+  min-height: 100vh;
   display: flex;
-  align-items: center;          
+  align-items: center;
   flex-direction: column;
-  padding: 2%;     
-  
-  scroll-behavior: smooth;    
+
+  scroll-behavior: smooth;
 }
 
 /* Header Contenedor */
 .header-main-sistemas {
-    display: flex;
-    width: auto;
-    height: auto;
-    margin: 10px;
-    padding: 5px;              
-    border-radius: 18px;
-    background: #ffffff;
-    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(235, 235, 235) 100%);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background: var(--color1);
+
+  display: flex;
+  align-content: center;
+  padding: 5px;
+  margin-top: 1%;
+
+  width: 90%;
+  height: 40px;
+
+  align-content: center;
+
+  border-radius: 10px;
 }
 
-/* Contenedor links navegacion */
-.nav-main-sistemas {
-    display:flex;
-    justify-content: center;
-    margin: 5px 20px;            
+.nav-main-sistemas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-/* Divicion "|" */
-.nav-main-sistemas a::after {
-    margin-left: 5px;
-    content:"|";       
-}
-.nav-main-sistemas a:last-child::after {
-  content: "";
+.nav-main-sistemas a{
+  color: var(--color2);
+
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+
+  padding: 6px 12px; 
+  margin: 5px ;
+  border-radius: 5px;
+
+  transition: all 0.3s ease;
 }
 
-/* Estilos Link a*/
-.nav-main-sistemas a {
-    text-align: center;
-    align-items: center;
-    justify-content: center ;
-    text-decoration: none;     
-    color:#1f1f1f;
-    margin: 5px 5px;
+.nav-main-sistemas :hover {
+  color: var(--color1);
+
+  background-color: var(--color2);
 }
+
+
 
