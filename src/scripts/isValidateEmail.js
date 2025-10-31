@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (esPassword) {
       passwordInput.setAttribute('type', 'text');
-      togglePassword.textContent = '🙈';
+      togglePassword.textContent = '⌣';
     } else {
       passwordInput.setAttribute('type', 'password');
-      togglePassword.textContent = '👁️';
+      togglePassword.textContent = '👁';
     }
   });
 

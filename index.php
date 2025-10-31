@@ -16,7 +16,7 @@
           <input type="text" id="usuario" name="usuario" placeholder="Usuario">
           <div class="password-container">
     <input type="password" id="password" name="password" placeholder="Contraseña">
-    <span id="togglePassword" class="toggle-icon">👁️</span>
+    <span id="togglePassword" class="toggle-icon">👁</span>
 </div>
           <button type="submit" id="btnLogin" disabled>Entrar</button>
         </form>
