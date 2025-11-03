@@ -1,6 +1,5 @@
 <?php
-// sin_permiso.php
-session_start(); // Necesitamos la sesión para saludar al usuario
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">

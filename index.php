@@ -74,7 +74,6 @@ if (isset($_SESSION['error'])) {
       </div>
     </div>
 
-
   <script src="/src/scripts/isValidateEmail.js"></script>
 </body>
 </html>
