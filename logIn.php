@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario_input = $_POST['usuario'];
     $password_input = $_POST['password'];
 
-    $sql = "SELECT id_usuario, nombre, apellidos, password, rol 
+    $sql = "SELECT id_usuario, nombre, apellidos, password, area, rol 
             FROM usuarios 
             WHERE (id_usuario = ? OR correo = ?) 
             AND fecha_baja IS NULL";

@@ -45,8 +45,8 @@ $type = $_GET['type'];
                 ?>
             </h2>
             <ul>
-                <li>Asesor</li>
-                <li>MediBroker</li>
+                <li><?php echo htmlspecialchars($_SESSION['user_name']); ?></li>
+                <li><?php echo htmlspecialchars($_SESSION['user_area']); ?></li>
                 <li>Tiempo estimado 1 - 3 dias habiles</li>
             </ul>
             <form action="">
