@@ -97,3 +97,5 @@
   cursor: pointer; /* Muestra una "manita" al pasar el mouse */
   user-select: none; /* Evita que el ícono se pueda seleccionar como texto */
 }
+
+.error { color: red; font-weight: bold; }

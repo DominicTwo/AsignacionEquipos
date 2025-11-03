@@ -1,3 +1,7 @@
+<?php 
+// require_once '../auth.php';
+// proteger_ruta(['sistemas']); protege las rutas
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,4 +1,6 @@
 <?php
+// require_once '../auth.php';
+// proteger_ruta(['sistemas']); protege las rutas
 require '../src/templates/NavBar.php'
 ?>
 <!DOCTYPE html>

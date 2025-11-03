@@ -1,3 +1,8 @@
+<?php
+require_once '../auth.php';
+proteger_ruta(['asesor']);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -1,3 +1,7 @@
+<?php
+require_once '../auth.php';
+proteger_ruta(['admin']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

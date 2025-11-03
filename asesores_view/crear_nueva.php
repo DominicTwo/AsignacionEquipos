@@ -1,4 +1,7 @@
 <?php
+require_once '../auth.php';
+proteger_ruta(['asesor']);
+
 $type = $_GET['type'];
 ?>
 

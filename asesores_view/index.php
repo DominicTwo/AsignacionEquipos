@@ -1,4 +1,7 @@
 <?php
+require_once '../auth.php';
+proteger_ruta(['asesor']);
+
 require '../db/db.php';
 require '../src/scripts/utils.php';
 
