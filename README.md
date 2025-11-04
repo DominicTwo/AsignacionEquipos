@@ -1,6 +1,6 @@
 # Sistema de Gestión de Equipos y Solicitudes
 
-## 📘 Descripción general
+## Descripción general
 
 Este proyecto es un **sistema de gestión interna** diseñado para controlar la **asignación, cambio, baja y cancelación de equipos de cómputo** entre asesores y el área de sistemas.  
 Incluye funcionalidades administrativas, control de inventario y trazabilidad completa de las acciones realizadas sobre cada solicitud.
@@ -14,33 +14,33 @@ El sistema está estructurado para permitir que:
 
 ---
 
-## 🧠 Funcionalidades principales hasta el momento
+## Funcionalidades principales hasta el momento
 
-### 🔹 1. Gestión de usuarios
+### 1. Gestión de usuarios
 - Registro y consulta de usuarios.
 - Roles definidos: `admin`, `sistemas`, `asesor`.
 - Control de fechas de registro y baja.
 - Ejemplo de usuario administrador: Fernando Lugo Hernández.
 
-### 🔹 2. Gestión de inventario
+### 2. Gestión de inventario
 - Registro de equipos de cómputo (marca, modelo, número de serie).
 - Control de estatus: `libre` o `asignada`.
 - Asociación con solicitudes de asignación o cambios.
 
-### 🔹 3. Gestión de solicitudes
+### 3. Gestión de solicitudes
 - Tipos de solicitud: `asignación`, `cambio`, `baja`, `cancelación`.
 - Registro del usuario que crea la solicitud y del destinatario del equipo.
 - Control de fechas de creación y terminación.
 - Integración con inventario para validar disponibilidad de equipos.
 
-### 🔹 4. Historial de acciones
+### 4. Historial de acciones
 - Registro de fechas de asignación, cancelación, cambio y baja.
 - Relación con el usuario que realiza la acción y la solicitud correspondiente.
 - Permite seguimiento completo de cada movimiento de equipo.
 
 ---
 
-## 🗂️ Estructura de la base de datos
+## Estructura de la base de datos
 
 **Tablas principales:**
 
@@ -56,7 +56,7 @@ El sistema está estructurado para permitir que:
 
 ---
 
-## 🔗 Flujo del sistema
+## Flujo del sistema
 
 1. El **asesor** crea una solicitud (asignación, cambio, baja o cancelación).  
 2. El sistema registra la solicitud como **pendiente**.  
@@ -66,7 +66,7 @@ El sistema está estructurado para permitir que:
 
 ---
 
-## ⚙️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - **Backend:** PHP 8+  
 - **Base de datos:** MySQL 8+  
@@ -75,7 +75,7 @@ El sistema está estructurado para permitir que:
 
 ---
 
-## 🔐 Roles del sistema
+## Roles del sistema
 
 | Rol       | Permisos principales |
 |-----------|---------------------|
@@ -85,7 +85,7 @@ El sistema está estructurado para permitir que:
 
 ---
 
-## 📅 Estado actual del proyecto
+## Estado actual del proyecto
 
 - Base de datos creada y normalizada.  
 - Tablas: `usuarios`, `inventario`, `solicitudes`, `historial`.  
@@ -95,7 +95,7 @@ El sistema está estructurado para permitir que:
 
 ---
 
-## 💬 Próximos pasos
+## Próximos pasos
 
 - Implementar login y control de sesiones según rol.  
 - Automatizar actualización de estatus de inventario mediante triggers.  
