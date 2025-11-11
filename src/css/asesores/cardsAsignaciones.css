@@ -27,9 +27,9 @@ h1 {
 
 /* Filas de cards */
 .fila {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 /* Cards */

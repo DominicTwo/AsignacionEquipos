@@ -2,10 +2,9 @@
 
 session_start();
 
-header("Cache-Control: no-cache, no-store, must-revalidate"); 
+header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
-
 
 require __DIR__ . '/db/db.php';
  
@@ -49,6 +48,15 @@ if (isset($_SESSION['error'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicia Sesión</title>
   <link rel="stylesheet" href="/src/css/login.css">
+
+  <script>
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    });
+  </script>
+
 </head>
   <body>
     <div class="left">
@@ -75,5 +83,6 @@ if (isset($_SESSION['error'])) {
     </div>
 
   <script src="/src/scripts/isValidateEmail.js"></script>
+
 </body>
 </html>

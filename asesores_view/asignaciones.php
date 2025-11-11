@@ -1,6 +1,23 @@
 <?php
 require_once '../auth.php';
 proteger_ruta(['asesor']);
+
+require '../db/db.php';
+require '../src/scripts/utils.php';
+
+$id_usuario_logueado = $_SESSION['user_id'];
+
+$completadas = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'completado');
+$en_proceso = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'en proceso');
+$pendientes = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'pendiente');
+
+function formatearFecha($fecha_db) {
+    if (!$fecha_db) {
+        return 'N/A';
+    }
+    $fecha = new DateTime($fecha_db);
+    return $fecha->format('d/m/Y - h:i A');
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,78 +38,87 @@ proteger_ruta(['asesor']);
     <h1>Mis Asignaciones</h1>
 
     <!-- Sección: Completadas -->
-    <section class="seccion">
-      <h2>Completadas</h2>
-      <div class="fila">
+<section class="seccion">
+  <h2>Completadas</h2>
+  <div class="fila">
+    
+    <?php if (empty($completadas)): ?>
+        <p>No tienes solicitudes completadas.</p>
+    <?php else: ?>
+        <?php foreach ($completadas as $sol): ?>
         <div class="card">
-          <div class="card-header">
-            <h3>Asignación</h3>
-            <span class="estatus completado">Completado</span>
-          </div>
-          <ul>
-            <li><strong>Asesor:</strong> Juan Pérez</li>
-            <li><strong>Área:</strong> MediBroker</li>
-            <li><strong>Fecha:</strong> 07/10/2025 - 09:45 A.M.</li>
-            <li><strong>Persona Asignada:</strong> Laura Gómez</li>
-          </ul>
-          <p class="nota"><strong>Nota:</strong> Se completó la configuración sin incidencias.</p>
+            <div class="card-header">
+                <h3><?php echo htmlspecialchars(ucfirst($sol['tipo'])); ?></h3>
+                <span class="estatus completado"><?php echo htmlspecialchars(ucfirst($sol['estatus'])); ?></span>
+            </div>
+            <ul>
+                <li><strong>Asesor:</strong> <?php echo htmlspecialchars($sol['nombre_asesor']); ?></li>
+                <li><strong>Área:</strong> <?php echo htmlspecialchars($sol['area_destino']); ?></li>
+                <li><strong>Fecha:</strong> <?php echo formatearFecha($sol['fecha_creacion']); ?></li>
+                <li><strong>Persona Asignada:</strong> <?php echo htmlspecialchars($sol['nombre_asignado']); ?></li>
+            </ul>
+            <p class="nota"><strong>Nota:</strong> <?php echo htmlspecialchars($sol['descripcion']); ?></p>
         </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
 
-        <div class="card">
-          <div class="card-header">
-            <h3>Asignación</h3>
-            <span class="estatus completado">Completado</span>
-          </div>
-          <ul>
-            <li><strong>Asesor:</strong> Carlos Díaz</li>
-            <li><strong>Área:</strong> MediBroker</li>
-            <li><strong>Fecha:</strong> 06/10/2025 - 04:10 P.M.</li>
-            <li><strong>Persona Asignada:</strong> Ana López</li>
-          </ul>
-          <p class="nota"><strong>Nota:</strong> Instalación finalizada y validada por sistemas.</p>
-        </div>
-      </div>
-    </section>
+  </div>
+</section>
 
     <!-- Sección: En Proceso -->
-    <section class="seccion">
-      <h2>En Proceso</h2>
-      <div class="fila">
+  <section class="seccion">
+  <h2>En Proceso</h2>
+  <div class="fila">
+    
+    <?php if (empty($en_proceso)): ?>
+        <p>No tienes solicitudes en proceso.</p>
+    <?php else: ?>
+        <?php foreach ($en_proceso as $sol): ?>
         <div class="card">
-          <div class="card-header">
-            <h3>Asignación</h3>
-            <span class="estatus proceso">En proceso</span>
-          </div>
-          <ul>
-            <li><strong>Asesor:</strong> Daniela Ruiz</li>
-            <li><strong>Área:</strong> MediBroker</li>
-            <li><strong>Fecha:</strong> 06/10/2025 - 03:20 P.M.</li>
-            <li><strong>Persona Asignada:</strong> Jorge Medina</li>
-          </ul>
-          <p class="nota"><strong>Nota:</strong> Pendiente validación de acceso al servidor principal.</p>
+            <div class="card-header">
+                <h3><?php echo htmlspecialchars(ucfirst($sol['tipo'])); ?></h3>
+                <span class="estatus proceso"><?php echo htmlspecialchars(ucfirst($sol['estatus'])); ?></span>
+            </div>
+            <ul>
+                <li><strong>Asesor:</strong> <?php echo htmlspecialchars($sol['nombre_asesor']); ?></li>
+                <li><strong>Área:</strong> <?php echo htmlspecialchars($sol['area_destino']); ?></li>
+                <li><strong>Fecha:</strong> <?php echo formatearFecha($sol['fecha_creacion']); ?></li>
+                <li><strong>Persona Asignada:</strong> <?php echo htmlspecialchars($sol['nombre_asignado']); ?></li>
+            </ul>
+            <p class="nota"><strong>Nota:</strong> <?php echo htmlspecialchars($sol['descripcion']); ?></p>
         </div>
-      </div>
-    </section>
+        <?php endforeach; ?>
+    <?php endif; ?>
 
+  </div>
+</section>
     <!-- Sección: Pendientes -->
-    <section class="seccion">
-      <h2>Pendientes</h2>
-      <div class="fila">
+<section class="seccion">
+  <h2>Pendientes</h2>
+  <div class="fila">
+    
+    <?php if (empty($pendientes)): ?>
+        <p>No tienes solicitudes pendientes.</p>
+    <?php else: ?>
+        <?php foreach ($pendientes as $sol): ?>
         <div class="card">
-          <div class="card-header">
-            <h3>Asignación</h3>
-            <span class="estatus pendiente">Pendiente</span>
-          </div>
-          <ul>
-            <li><strong>Asesor:</strong> Ana López</li>
-            <li><strong>Área:</strong> MediBroker</li>
-            <li><strong>Fecha:</strong> 07/10/2025 - 10:30 A.M.</li>
-            <li><strong>Persona Asignada:</strong> Pedro Ramírez</li>
-          </ul>
-          <p class="nota"><strong>Nota:</strong> A la espera de confirmación del área de sistemas.</p>
+            <div class="card-header">
+                <h3><?php echo htmlspecialchars(ucfirst($sol['tipo'])); ?></h3>
+                <span class="estatus pendiente"><?php echo htmlspecialchars(ucfirst($sol['estatus'])); ?></span>
+            </div>
+            <ul>
+                <li><strong>Asesor:</strong> <?php echo htmlspecialchars($sol['nombre_asesor']); ?></li>
+                <li><strong>Área:</strong> <?php echo htmlspecialchars($sol['area_destino']); ?></li>
+                <li><strong>Fecha:</strong> <?php echo formatearFecha($sol['fecha_creacion']); ?></li>
+                <li><strong>Persona Asignada:</strong> <?php echo htmlspecialchars($sol['nombre_asignado']); ?></li>
+            </ul>
+            <p class="nota"><strong>Nota:</strong> <?php echo htmlspecialchars($sol['descripcion']); ?></p>
         </div>
-      </div>
-    </section>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+  </div>
+</section>
 
   </main>
 

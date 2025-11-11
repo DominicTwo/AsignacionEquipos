@@ -40,5 +40,6 @@ $resultado = getUsers($db);
       <a href="/asesores_view/crear_nueva.php?type=drop" class="card">Baja</a>
     </div>
   </main>
+
 </body>
 </html>
