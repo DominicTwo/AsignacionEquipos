@@ -14,26 +14,6 @@
 <body>
      <main class="main-cards-sistemas">
         <section class="section-main">
-            <a href="ViewAsignaciones.php" class="link-cards">
-                <div class="card-content asignacion-card">
-                <h2 class="title-card title-asignaciones">Asignaciones</h2>
-                </div>
-            </a>
-            <a href="ViewAsignaciones.php" class="link-cards">
-                <div class="card-content cambio-card" >
-                <h2 class="title-card">Cambios</h2>
-                </div>
-            </a>
-            <a href="ViewAsignaciones.php" class="link-cards">
-                <div class="card-content cancelacion-card">
-                <h2 class="title-card">Cancelaciones</h2>
-                </div>
-            </a>
-            <a href="ViewAsignaciones.php" class="link-cards">
-                <div class="card-content bajas-card">
-                <h2 class="title-card">Bajas</h2>
-                </div>
-            </a>
             
         </section>
     </main>       
