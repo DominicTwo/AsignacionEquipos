@@ -1,7 +1,7 @@
 <?php
 // require_once '../auth.php';
 // proteger_ruta(['sistemas']); protege las rutas
-require '../src/templates/NavBar.php'
+ require '../src/templates/NavBar.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,15 +12,30 @@ require '../src/templates/NavBar.php'
     <title>Document</title>
 </head>
 <body>
-     <main class="main-Asignaciones-sistemas">
-        <section class="section-main-asignaciones">
-          <h1 class="titulo-asignaciones">Asignaciones</h1>
-
-          <div class="contenedor-cards">
-          <div class="card-asignacion">
-      </div>
-  </div>
-</section>
+     <main class="main-cards-sistemas">
+        <section class="section-main">
+            <a href="ViewAsignaciones.php" class="link-cards">
+                <div class="card-content asignacion-card">
+                <h2 class="title-card title-asignaciones">Asignaciones</h2>
+                </div>
+            </a>
+            <a href="ViewAsignaciones.php" class="link-cards">
+                <div class="card-content cambio-card" >
+                <h2 class="title-card">Cambios</h2>
+                </div>
+            </a>
+            <a href="ViewAsignaciones.php" class="link-cards">
+                <div class="card-content cancelacion-card">
+                <h2 class="title-card">Cancelaciones</h2>
+                </div>
+            </a>
+            <a href="ViewAsignaciones.php" class="link-cards">
+                <div class="card-content bajas-card">
+                <h2 class="title-card">Bajas</h2>
+                </div>
+            </a>
+            
+        </section>
     </main>       
 </body>
 </html>
