@@ -54,5 +54,40 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus) {
     $stmt->close();
     return $solicitudes;
 }
+
+function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id = null) {
+    
+    // 1. Definimos la consulta SQL
+    $sql = "INSERT INTO solicitudes (id_usuario, tipo, nombre_asignado, area_destino, descripcion, equipo_id) 
+            VALUES (?, ?, ?, ?, ?, ?)";
+    
+    // 2. Preparamos la sentencia
+    $stmt = $db->prepare($sql);
+    
+    if (!$stmt) {
+        // Si falla la preparación (ej. error de sintaxis SQL)
+        return ["exito" => false, "mensaje" => "Error en la preparación de la consulta: " . $db->error];
+    }
+
+    // 3. Vinculamos los parámetros (s = string, i = integer)
+    // s: id_usuario (char)
+    // s: tipo (enum/string)
+    // s: nombre_asignado (varchar)
+    // s: area_destino (varchar)
+    // s: descripcion (text)
+    // i: equipo_id (int) - Puede ser null
+    $stmt->bind_param("sssssi", $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id);
+
+    // 4. Ejecutamos
+    if ($stmt->execute()) {
+        $id_nuevo = $stmt->insert_id; // Obtenemos el ID generado
+        $stmt->close();
+        return ["exito" => true, "mensaje" => "Solicitud creada correctamente", "id" => $id_nuevo];
+    } else {
+        $error = $stmt->error;
+        $stmt->close();
+        return ["exito" => false, "mensaje" => "Error al ejecutar la inserción: " . $error];
+    }
+}
 ?>
 
