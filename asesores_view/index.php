@@ -3,18 +3,7 @@ require_once '../auth.php';
 proteger_ruta(['asesor']);
 
 require '../db/db.php';
-require '../src/scripts/utils.php';
 
-$resultado = getUsers($db);
-
-
-    /*if ($resultado->num_rows > 0) {
-        while ($fila = $resultado->fetch_assoc()) {
-            echo $fila['nombre'] . " " . $fila['apellidos'] . " - " . $fila['area'] . " (" . $fila['rol'] . ")<br>";
-        }
-    } else {
-        echo "No hay usuarios registrados.";
-    }*/
 ?>
 
 <!DOCTYPE html>

@@ -1,13 +1,6 @@
 <?php
-function getUsers($db) {
-    $sql = "SELECT id, nombre, apellidos, correo, area, rol FROM usuarios";
-    return $db->query($sql);
-}
 
-function getUsersValidate($db, $name, $password) {
-    $sql = "SELECT id_usuario, nombre, apellidos, correo, password, area, rol FROM usuarios WHERE $name";
-}
-
+// Obtiene las solicitudes por estatus
 function getSolicitudesPorEstatus($db, $id_usuario, $estatus) {
     
     $sql = "SELECT 
@@ -55,6 +48,7 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus) {
     return $solicitudes;
 }
 
+// Crea una solicitud
 function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id = null) {
     
     // 1. Definimos la consulta SQL
@@ -65,22 +59,16 @@ function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino
     $stmt = $db->prepare($sql);
     
     if (!$stmt) {
-        // Si falla la preparación (ej. error de sintaxis SQL)
         return ["exito" => false, "mensaje" => "Error en la preparación de la consulta: " . $db->error];
     }
 
     // 3. Vinculamos los parámetros (s = string, i = integer)
-    // s: id_usuario (char)
-    // s: tipo (enum/string)
-    // s: nombre_asignado (varchar)
-    // s: area_destino (varchar)
-    // s: descripcion (text)
-    // i: equipo_id (int) - Puede ser null
+
     $stmt->bind_param("sssssi", $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id);
 
     // 4. Ejecutamos
     if ($stmt->execute()) {
-        $id_nuevo = $stmt->insert_id; // Obtenemos el ID generado
+        $id_nuevo = $stmt->insert_id;
         $stmt->close();
         return ["exito" => true, "mensaje" => "Solicitud creada correctamente", "id" => $id_nuevo];
     } else {
@@ -88,6 +76,15 @@ function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino
         $stmt->close();
         return ["exito" => false, "mensaje" => "Error al ejecutar la inserción: " . $error];
     }
+}
+
+// Formatea la fecha de la BD
+function formatearFecha($fecha_db) {
+    if (!$fecha_db) {
+        return 'N/A';
+    }
+    $fecha = new DateTime($fecha_db);
+    return $fecha->format('d/m/Y - h:i A');
 }
 ?>
 
