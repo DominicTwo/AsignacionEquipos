@@ -16,7 +16,7 @@
         <section class="section-main">
             <a href="ViewAsignaciones.php" class="link-cards">
                 <div class="card-content asignacion-card">
-                <h2 class="title-card title-asignaciones">Asignacionesss</h2>
+                <h2 class="title-card title-asignaciones">Asignacioness</h2>
                 </div>
             </a>
             <a href="ViewAsignaciones.php" class="link-cards">
