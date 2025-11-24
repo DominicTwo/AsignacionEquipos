@@ -13,7 +13,7 @@
 </head>
 <body>
      <main class="main-cards-sistemas">
-        <section class="section-main">
+     
 
             <a href="ViewAsignaciones.php" class="link-cards">
                 <div class="card-content asignacion-card">
@@ -36,7 +36,6 @@
                 </div>
             </a>
             
-        </section>
     </main>       
 </body>
 </html>
