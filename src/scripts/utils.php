@@ -78,6 +78,8 @@ function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino
     }
 }
 
+
+
 // Formatea la fecha de la BD
 function formatearFecha($fecha_db) {
     if (!$fecha_db) {
