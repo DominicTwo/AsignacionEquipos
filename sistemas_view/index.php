@@ -14,8 +14,7 @@
 <body>
      <main class="main-cards-sistemas">
         <section class="section-main">
-<<<<<<< HEAD
-=======
+
             <a href="ViewAsignaciones.php" class="link-cards">
                 <div class="card-content asignacion-card">
                 <h2 class="title-card title-asignaciones">Asignacioness</h2>
@@ -36,7 +35,6 @@
                 <h2 class="title-card">Bajas</h2>
                 </div>
             </a>
->>>>>>> 638946baa2a12d3bf267a8f306fa40311389fc49
             
         </section>
     </main>       
