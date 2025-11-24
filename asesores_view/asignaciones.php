@@ -11,13 +11,8 @@ $completadas = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'completado')
 $en_proceso = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'en proceso');
 $pendientes = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'pendiente');
 
-function formatearFecha($fecha_db) {
-    if (!$fecha_db) {
-        return 'N/A';
-    }
-    $fecha = new DateTime($fecha_db);
-    return $fecha->format('d/m/Y - h:i A');
-}
+formatearFecha($fecha_db);
+
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +72,7 @@ function formatearFecha($fecha_db) {
         <div class="card">
             <div class="card-header">
                 <h3><?php echo htmlspecialchars(ucfirst($sol['tipo'])); ?></h3>
-                <span class="estatus proceso"><?php echo htmlspecialchars(ucfirst($sol['estatus'])); ?></span>
+                <span class="estatus en-proceso"><?php echo htmlspecialchars(ucfirst($sol['estatus'])); ?></span>
             </div>
             <ul>
                 <li><strong>Asesor:</strong> <?php echo htmlspecialchars($sol['nombre_asesor']); ?></li>
