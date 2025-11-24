@@ -9,7 +9,7 @@ body {
   
   min-height: 100vh;          
   display: flex;
-  align-items: center;          
+        
   flex-direction: column;
   padding: 20px;     
   
@@ -19,69 +19,56 @@ body {
 }
 
 .main-cards-sistemas {
-  height: 80%;
+  height: 20%;
   width: 90%;
 
   display: flex;
   justify-content: center;
+  align-items: center;
 
   padding: 10px;
   margin: auto;
 
+  border: 1px solid red;
+
 }
 
-  .section-main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px; 
-    justify-content: center;
-    width: 90%;
-
-    padding: 1%;
-}
 
 .link-cards {
   text-decoration: none;
+  width: 50%;
+  height: 30%;;
 }
 
 .title-card {
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.title-asugnaciones{
- -webkit-text-stroke-color:rgba(128, 179, 77, 1) ;
+  font-size: .45rem;
+  color: var(--color1);
 }
 
 .card-content {
-  width: 90%;
-  height: 80%;;
+  width: 100%;
+  height: 100%;;
 
   border: 2px solid#7c4d8b;
 
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
 
- -webkit-box-shadow: 4px 4px 5px 0px rgba(72, 72, 72, 0.6); 
-box-shadow: 4px 4px 5px 0px rgba(85, 85, 85, 0.6);
+ 
 }
 
 .asignacion-card {
- background: #F5F5F5;
-background: linear-gradient(145deg, rgb(244, 244, 244) 0%, #7c4d8b 100%);
+ 
 }
 
 .cambio-card{
-  background: #F5F5F5;
-background: linear-gradient(145deg, rgba(245, 245, 245, 1) 0%, rgba(77, 179, 170, 1) 100%);
+  
 }
 
 .cancelacion-card{
-background: #F5F5F5;
-background: linear-gradient(145deg, rgba(245, 245, 245, 1) 0%, rgba(186, 127, 60, 1) 100%);
+
 }
 
 .bajas-card{
-background: #F5F5F5;
-background: linear-gradient(145deg, rgba(245, 245, 245, 1) 0%, rgba(186, 60, 60, 1) 100%);
+
 }
