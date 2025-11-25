@@ -78,6 +78,42 @@ function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino
     }
 }
 
+function actualizarEstatus($bd, $idSolicitud, $nuevoEstatus) {
+    // 1. Validar que el estatus sea válido
+    $estatusPermitidos = ['pendiente', 'en proceso', 'completado'];
+
+    if (!in_array($nuevoEstatus, $estatusPermitidos)) {
+        return "Error: El estatus no es válido.";
+    }
+
+    // 2. Query preparada
+    $sql = "UPDATE solicitudes SET estatus = ? WHERE id_solicitud = ?";
+
+    // 3. Preparar la sentencia
+    if ($stmt = mysqli_prepare($bd, $sql)) {
+        
+        mysqli_stmt_bind_param($stmt, "si", $nuevoEstatus, $idSolicitud);
+
+        // 4. Ejecutar
+        if (mysqli_stmt_execute($stmt)) {
+            $filas = mysqli_stmt_affected_rows($stmt);
+            mysqli_stmt_close($stmt);
+            
+            if ($filas > 0) {
+                return true;
+            } else {
+                return "No hubo cambios (ID incorrecto o el estatus ya era ese).";
+            }
+        } else {
+            $error = mysqli_error($bd);
+            mysqli_stmt_close($stmt);
+            return "Error al ejecutar: " . $error;
+        }
+    } else {
+        return "Error en la consulta: " . mysqli_error($bd);
+    }
+}
+
 // Formatea la fecha de la BD
 function formatearFecha($fecha_db) {
     if (!$fecha_db) {

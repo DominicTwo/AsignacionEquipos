@@ -13,7 +13,7 @@ $completadas = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'completado')
 $en_proceso  = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'en proceso');
 $pendientes  = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'pendiente');
 
-// 2. Lógica de Filtrado según tus reglas
+// 2. Lógica de Filtrado
 $lista_solicitudes = [];
 $titleMain = "";
 
@@ -79,11 +79,11 @@ switch ($type) {
     <?php if ($type != 'asig'): ?>
         <main class="content-wrapper">
             <section class="seccion">
-                <h2>Selecciona para: <?php echo $titleMain ?></h2>
+                <h2>Selecciona para: <?php echo htmlspecialchars($titleMain) ?></h2>
                 <div class="fila">
                     
                     <?php if (empty($lista_solicitudes)): ?>
-                        <p><strong>No se encontraron solicitudes aptas para <?php echo strtolower($titleMain); ?>.</strong></p>
+                        <p><strong>No se encontraron solicitudes aptas para <?php echo htmlspecialchars($titleMain); ?>.</strong></p>
                     <?php else: ?>
                         <?php foreach ($lista_solicitudes as $sol): ?>
                         <div class="card">
@@ -128,7 +128,7 @@ switch ($type) {
                     <li>Tiempo estimado 1 - 3 dias hábiles</li>
                 </ul>
 
-                <form action="procesar_asignacion.php" method="POST"> <input type="text" name="colaborador" placeholder="Colaborador Ej. Pedrito Sola" required>
+                <form action="procesar_asignacion.php?type=<?php echo $type ?>" method="POST"> <input type="text" name="colaborador" placeholder="Colaborador Ej. Pedrito Sola" required>
                     <textarea name="nota" aria-label="Caja de texto para respuesta" placeholder="Agrega aqui tu nota de asignacion" required></textarea>
                     <button type="submit" class="btn btn-ok">Ok</button>
                 </form>

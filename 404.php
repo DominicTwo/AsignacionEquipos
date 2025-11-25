@@ -1,16 +1,4 @@
 <?php
-require_once '../auth.php';
-proteger_ruta(['admin']);
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administrador</title>
-</head>
-<body>
-    <?php
 // 1. ESTO ES LO MÁS IMPORTANTE
 // Le dice a Google y al navegador que esto es un error real, no una página normal.
 http_response_code(404);
@@ -101,10 +89,8 @@ http_response_code(404);
         
         <p>Es posible que el enlace esté roto o que la página haya sido eliminada.</p>
         
-        <a href="/logOut.php" class="btn-home">Volver al Inicio</a>
+        <a href="/" class="btn-home">Volver al Inicio</a>
     </div>
 
-</body>
-</html>
 </body>
 </html>
