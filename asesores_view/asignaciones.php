@@ -11,8 +11,6 @@ $completadas = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'completado')
 $en_proceso = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'en proceso');
 $pendientes = getSolicitudesPorEstatus($db, $id_usuario_logueado, 'pendiente');
 
-formatearFecha($fecha_db);
-
 ?>
 
 <!DOCTYPE html>
