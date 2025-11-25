@@ -14,28 +14,37 @@
 </head>
 
 <body>
-
-    <?php  ?>
-
-     <main class="main-cards-sistemas">       
+    <section class="main-cards-sistemas">       
               
         <div class="card-content asignacion-card">
             <h2 class="title-card title-asignaciones">Asignaciones</h2>
         </div>
 
-        <div class="card-content cambios-card">
+        <div class="card-content cambio-card">
             <h2 class="title-card title-asignaciones">Cambios</h2>
         </div>
 
-        <div class="card-content cancelaciones-card">
+        <div class="card-content cancelacion-card">
             <h2 class="title-card title-asignaciones">Cancelaciones</h2>
         </div>
 
         <div class="card-content bajas-card">
             <h2 class="title-card title-asignaciones">Bajas</h2>
         </div>
+    
+    </section>
 
-    </main>       
+    <section class="view-reports-sistemas">
+
+        <div class="report-info">
+            <h2 class="title-card title-reports">Reportes de Asignaciones
+                
+            </h2>
+        </div>
+    </section>
+
+    
+    
 </body>
 
 </html>
