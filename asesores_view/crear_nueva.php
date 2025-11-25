@@ -125,10 +125,10 @@ switch ($type) {
                 <ul>
                     <li><?php echo htmlspecialchars($_SESSION['user_name'] ?? 'Usuario'); ?></li>
                     <li><?php echo htmlspecialchars($_SESSION['user_area'] ?? 'Área'); ?></li>
-                    <li>Tiempo estimado 1 - 3 dias hábiles ñiñiñi xd</li>
+                    <li>Tiempo estimado 1 - 3 dias hábiles</li>
                 </ul>
 
-                <form action="procesar_asignacion.php" method="POST"> <input type="text" name="colaborador" placeholder="Colaborador Ej. Pedrito Sola" required>
+                <form action="procesar_asignacion.php?type=<?php echo $type ?>" method="POST"> <input type="text" name="colaborador" placeholder="Colaborador Ej. Pedrito Sola" required>
                     <textarea name="nota" aria-label="Caja de texto para respuesta" placeholder="Agrega aqui tu nota de asignacion" required></textarea>
                     <button type="submit" class="btn btn-ok">Ok</button>
                 </form>
