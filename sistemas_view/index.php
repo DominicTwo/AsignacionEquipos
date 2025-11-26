@@ -18,6 +18,7 @@
               
         <div class="card-content asignacion-card">
             <h2 class="title-card title-asignaciones">Asignaciones</h2>
+
         </div>
 
         <div class="card-content cambio-card">
@@ -36,10 +37,18 @@
 
     <section class="view-reports-sistemas">
 
-        <div class="report-info">
-            <h2 class="title-card title-reports">Reportes de Asignaciones
-                
-            </h2>
+        <div class="report-info">   
+            <div>
+                <p></p>
+                <p></p>
+            </div>
+            <div>
+                <p></p>
+                <p></p>
+            </div>
+            <div></div>
+            <div></div>
+        
         </div>
     </section>
 
