@@ -73,18 +73,56 @@ body {
   justify-content: center;
   align-items: center;
 
+  flex-direction: column;
+
   border-radius: 5px;
 
   background-color: var(--color4);
-  border: 1px solid red;
+
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .report-info{
-  width: 95%;
+  position: relative;
+  width: 98%;
+  height: auto;
+  margin: 1%;
+
+  color: var(--color1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 3px;
+
+  box-shadow: 1px 3px 3px #0000003e;
+
+}
+
+.report-info ::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background-color: var(--asignacion);
+  border-radius: 8px 0 0 8px;
+}
+
+
+.report-section {
+  width: 25%;
   height: auto;
   padding: .5%;
   margin: 1%;
   border: 1px solid red;
-  color: var(--color1);
 }
+
+.text-info{
+  font-size: 12px;
+  margin: 1%;
+  color: #0000007e;
+}
+

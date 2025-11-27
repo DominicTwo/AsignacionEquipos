@@ -47,7 +47,6 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus) {
     $stmt->close();
     return $solicitudes;
 }
-
 // Crea una solicitud
 function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id = null) {
     
@@ -122,5 +121,4 @@ function formatearFecha($fecha_db) {
     $fecha = new DateTime($fecha_db);
     return $fecha->format('d/m/Y - h:i A');
 }
-?>
-
+?>  

@@ -37,17 +37,24 @@
 
     <section class="view-reports-sistemas">
 
-        <div class="report-info">   
-            <div>
-                <p></p>
-                <p></p>
+        <div class="report-info">
+
+            <div class="report-section">
+                <p class="text-info">Asignacion</p>
+                <p class="text-info">Status : En Proceso</p>
+                <p class="text-info">Fecha: Hoy XD</p>
             </div>
-            <div>
-                <p></p>
-                <p></p>
+
+            <div class="report-section">
+                <p class="text-info">Asesor: Lugo Hernandez Feernando</p>
+                <p class="text-info">Area: Sistemas</p>
+                <p class="text-info">Persona asignada: Lugo Hernandez Fernando</p>
             </div>
-            <div></div>
-            <div></div>
+
+            <div class="report-section">
+                <p class="text-info">Nota:</p>
+                <p class="text-info"> No funciona la pici XD</p>
+            </div>
         
         </div>
     </section>
