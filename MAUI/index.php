@@ -11,8 +11,7 @@ proteger_ruta(['admin']);
 </head>
 <body>
     <?php
-// 1. ESTO ES LO MÁS IMPORTANTE
-// Le dice a Google y al navegador que esto es un error real, no una página normal.
+
 http_response_code(404);
 ?>
 <!DOCTYPE html>
@@ -22,7 +21,6 @@ http_response_code(404);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página no encontrada - Error 404</title>
     <style>
-        /* ESTILOS CSS (DISEÑO) */
         * {
             box-sizing: border-box;
         }

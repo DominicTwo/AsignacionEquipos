@@ -23,10 +23,10 @@ require '../db/db.php';
   <main>
     <h1>Crear Nueva</h1>
     <div class="grid-container">
-      <a href="/asesores_view/crear_nueva.php?type=asig" class="card">Asignacion</a>
-      <a href="/asesores_view/crear_nueva.php?type=undo" class="card">Cancelación</a>
-      <a href="/asesores_view/crear_nueva.php?type=shift" class="card">Cambio</a>
-      <a href="/asesores_view/crear_nueva.php?type=drop" class="card">Baja</a>
+      <a href="/asesores_view/crear_nueva.php?type=asignacion" class="card">Asignacion</a>
+      <a href="/asesores_view/crear_nueva.php?type=cancelacion" class="card">Cancelación</a>
+      <a href="/asesores_view/crear_nueva.php?type=cambio" class="card">Cambio</a>
+      <a href="/asesores_view/crear_nueva.php?type=baja" class="card">Baja</a>
     </div>
   </main>
 
