@@ -50,22 +50,18 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus) {
 // Crea una solicitud
 function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id = null) {
     
-    // 1. Definimos la consulta SQL
     $sql = "INSERT INTO solicitudes (id_usuario, tipo, nombre_asignado, area_destino, descripcion, equipo_id) 
             VALUES (?, ?, ?, ?, ?, ?)";
     
-    // 2. Preparamos la sentencia
     $stmt = $db->prepare($sql);
     
     if (!$stmt) {
         return ["exito" => false, "mensaje" => "Error en la preparación de la consulta: " . $db->error];
     }
 
-    // 3. Vinculamos los parámetros (s = string, i = integer)
 
     $stmt->bind_param("sssssi", $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id);
 
-    // 4. Ejecutamos
     if ($stmt->execute()) {
         $id_nuevo = $stmt->insert_id;
         $stmt->close();
@@ -77,23 +73,21 @@ function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino
     }
 }
 
+
+// Actualiza el estatus de la asignación
 function actualizarEstatus($bd, $idSolicitud, $nuevoEstatus) {
-    // 1. Validar que el estatus sea válido
     $estatusPermitidos = ['pendiente', 'en proceso', 'completado'];
 
     if (!in_array($nuevoEstatus, $estatusPermitidos)) {
         return "Error: El estatus no es válido.";
     }
 
-    // 2. Query preparada
     $sql = "UPDATE solicitudes SET estatus = ? WHERE id_solicitud = ?";
 
-    // 3. Preparar la sentencia
     if ($stmt = mysqli_prepare($bd, $sql)) {
         
         mysqli_stmt_bind_param($stmt, "si", $nuevoEstatus, $idSolicitud);
 
-        // 4. Ejecutar
         if (mysqli_stmt_execute($stmt)) {
             $filas = mysqli_stmt_affected_rows($stmt);
             mysqli_stmt_close($stmt);
@@ -113,7 +107,6 @@ function actualizarEstatus($bd, $idSolicitud, $nuevoEstatus) {
     }
 }
 
-// Formatea la fecha de la BD
 function formatearFecha($fecha_db) {
     if (!$fecha_db) {
         return 'N/A';
