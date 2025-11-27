@@ -1,3 +1,12 @@
+
+:root {
+  --asignacion: #702489;
+  --cambio: #488f2d;
+  --cancelacion: #c76719; 
+  --baja: #863543;
+}
+
+
 body {                
   flex-direction: column;
   padding: 20px;     
@@ -7,43 +16,75 @@ body {
 }
 
 .main-cards-sistemas {
-  height: 20%;
-  width: 90%;
+  height: auto;
+  min-width: 85%;
+  width: auto;
+  margin: 1%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   padding: 1%;
-  margin: auto;
-
-  border: 1px solid red;
-
 }
 
 .title-card {
-  font-size: .45rem;
-  color: var(--color1);
+  font-size: 1rem;
+  color: var(--color4);
+  margin: 0;
 }
 
 .card-content {
-  width: 100%;
+  width: 24%;
   height: 100%;;
-
+  padding: 1%;
+  margin: 1%;
   border: 1px solid#7c4d8b;
 
-  padding: 10px;
-  border-radius: 10px;
+  padding: .5%;
+  border-radius: 5px;
+
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .asignacion-card {
+  background-color: var(--asignacion);
 }
 
 .cambio-card{
+  background-color: var(--cambio);
 }
 
 .cancelacion-card{
+  background-color:var(--cancelacion);
 }
 
 .bajas-card{
+  background-color: var(--baja);
+}
+
+.view-reports-sistemas{
+  width: 90%;
+  margin: 1%;
+  height: auto;
+  min-height: 10%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5px;
+
+  background-color: var(--color4);
+  border: 1px solid red;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.report-info{
+  width: 95%;
+  height: auto;
+  padding: .5%;
+  margin: 1%;
+  border: 1px solid red;
+  color: var(--color1);
 }
