@@ -134,8 +134,9 @@ body {
   color: #0000007e;
 }
 
-.count-asignacione{
-  font-size: 2rem;
+.count-asignaciones{
+  font-size: 1.5rem;
   color: var(--color4);
   margin: 0;
+  padding: 0;
 }
