@@ -18,13 +18,12 @@
               
         <div class="card-content asignacion-card">
             <h2 class="title-card title-asignaciones">Asignaciones</h2>
-
+            <p class="count-asignaciones">0</p>
         </div>
 
         <div class="card-content cambio-card">
             <h2 class="title-card title-asignaciones">Cambios</h2>
         </div>
-
         <div class="card-content cancelacion-card">
             <h2 class="title-card title-asignaciones">Cancelaciones</h2>
         </div>
@@ -40,20 +39,44 @@
         <div class="report-info">
 
             <div class="report-section">
-                <p class="text-info">Asignacion</p>
-                <p class="text-info">Status : En Proceso</p>
-                <p class="text-info">Fecha: Hoy XD</p>
+                
+                <div class="report-column">
+                    <p class="text-info">Tipo de solicitud:</p>
+                    <p class="text-info">Status:</p>
+                    <p class="text-info">Fecha:</p>
+                </div>
+                <div class="report-column">
+                    <p class="text-info">Asignacion</p>
+                    <p class="text-info">En Proceso</p>
+                    <p class="text-info">Hoy XD</p>
+                </div>
             </div>
 
             <div class="report-section">
-                <p class="text-info">Asesor: Lugo Hernandez Feernando</p>
-                <p class="text-info">Area: Sistemas</p>
-                <p class="text-info">Persona asignada: Lugo Hernandez Fernando</p>
+
+                <div class="report-column">
+                    <p class="text-info">Asesor:</p>
+                    <p class="text-info">Area:</p>
+                    <p class="text-info">Persona asignada:</p>
+                </div>
+                <div class="report-column">
+                    <p class="text-info">Lugo Hernandez Fernando</p>
+                    <p class="text-info">Sistemas</p>
+                    <p class="text-info">Lugo Hernandez Fernando</p>
+                </div>
+
             </div>
 
             <div class="report-section">
-                <p class="text-info">Nota:</p>
-                <p class="text-info"> No funciona la pici XD</p>
+                
+                <div class="report-column">
+                    <p class="text-info">Nota:</p>
+                </div>
+                 <div class="report-column">
+                    <p class="text-info">No funciona la pici xd</p>
+                </div>
+
+
             </div>
         
         </div>

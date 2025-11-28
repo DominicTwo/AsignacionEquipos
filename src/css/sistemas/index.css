@@ -113,12 +113,20 @@ body {
 
 
 .report-section {
-  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
   height: auto;
   padding: .5%;
   margin: 1%;
   border: 1px solid red;
 }
+
+.report-column{
+  width: 50%;
+}
+
 
 .text-info{
   font-size: 12px;
@@ -126,3 +134,8 @@ body {
   color: #0000007e;
 }
 
+.count-asignacione{
+  font-size: 2rem;
+  color: var(--color4);
+  margin: 0;
+}
