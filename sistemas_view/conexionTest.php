@@ -2,13 +2,10 @@
 
 require '../db/db.php';
 
-
 $mensaje = ""; // Inicializamos la variable vacía
-
 if ($db->connect_error) {
     // En producción, evita mostrar el error técnico exacto al usuario final
-    $mensaje = "Error de conexión: " . $db->connect_error; 
-   
+    $mensaje = "Error de conexión: " . $db->connect_error;
 } else {
     $mensaje = "Conexión exitosa a la base de datos.";
 }

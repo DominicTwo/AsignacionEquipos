@@ -1,7 +1,35 @@
 <?php
-require_once '../auth.php';
- proteger_ruta(['sistemas']); 
- include '../src/templates/Navbar.php';
+ // require_once '../auth.php';
+ // proteger_ruta(['sistemas']); 
+    include '../src/templates/Navbar.php';
+    require '../db/db.php';
+
+    $totalAsignaciones = 0;
+    $totalCambios = 0;
+    $totalCancelaciones = 0;
+    $totalBajas = 0;
+    
+
+    // Consulta para obtener los totales de cada tipo de solicitud pendiente
+    $sql = "SELECT 
+                SUM(CASE WHEN tipo = 'asignacion' THEN 1 ELSE 0 END) as total_asignaciones,
+                SUM(CASE WHEN tipo = 'cambio'     THEN 1 ELSE 0 END) as total_cambios,
+                SUM(CASE WHEN tipo = 'cancelacion' THEN 1 ELSE 0 END) as total_cancelaciones,
+                SUM(CASE WHEN tipo = 'baja'       THEN 1 ELSE 0 END) as total_bajas
+            FROM solicitudes 
+            WHERE estatus = 'pendiente'";
+    //Obtener los resultados de la consulta
+    $resultado = $db->query($sql);
+
+    if ($resultado) {
+        $fila = $resultado->fetch_assoc();
+
+        $totalAsignaciones  = intval($fila['total_asignaciones']);
+        $totalCambios       = intval($fila['total_cambios']);
+        $totalCancelaciones = intval($fila['total_cancelaciones']);
+        $totalBajas         = intval($fila['total_bajas']);
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,21 +46,21 @@ require_once '../auth.php';
               
         <div class="card-content asignacion-card">
             <h2 class="title-card title-asignaciones">Asignaciones</h2>
-            <p class="count-asignaciones count-all">0</p>
+            <p class="count-asignaciones count-all"><?php echo $totalAsignaciones ?></p>
         </div>
 
         <div class="card-content cambio-card">
             <h2 class="title-card title-asignaciones">Cambios</h2>
-            <p class="count-cambios count-all">0</p>
+            <p class="count-cambios count-all"><?php echo $totalCambios ?></p>
         </div>
         <div class="card-content cancelacion-card">
             <h2 class="title-card title-asignaciones">Cancelaciones</h2>
-            <p class="count-cancelaciones count-all">0</p>
+            <p class="count-cancelaciones count-all"><?php echo $totalCancelaciones ?></p>
         </div>
 
         <div class="card-content bajas-card">
             <h2 class="title-card title-asignaciones">Bajas</h2>
-            <p class="count-bajas count-all">0</p>
+            <p class="count-bajas count-all"><?php echo $totalBajas ?></p>
         </div>
     
     </section>
@@ -76,7 +104,8 @@ require_once '../auth.php';
         
 
     </section>
-
+    <h1>
+    </h1>
     
     
 </body>
