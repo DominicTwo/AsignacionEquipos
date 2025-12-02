@@ -3,7 +3,6 @@ require_once '../auth.php';
 proteger_ruta(['asesor']);
 
 require '../db/db.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +28,24 @@ require '../db/db.php';
       <a href="/asesores_view/crear_nueva.php?type=baja" class="card">Baja</a>
     </div>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <?php if (isset($_GET['msg'])): ?>
+    <script>
+      Swal.fire({
+        title: '¡Solicitud Creada!',
+        text: 'La solicitud se ha registrado exitosamente.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#3085d6'
+      }).then((result) => {
+        if (result.isConfirmed || result.isDismissed) {
+             window.history.replaceState(null, null, window.location.pathname);
+        }
+      });
+    </script>
+  <?php endif; ?>
 
 </body>
 </html>
