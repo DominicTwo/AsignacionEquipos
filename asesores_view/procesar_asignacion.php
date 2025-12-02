@@ -49,7 +49,8 @@ $resultado = crearSolicitud(
     $colaborador,   
     $area_destino, 
     $nota,        
-    $equipo_id      
+    $equipo_id,
+    $id_origen 
 );
 
 if ($resultado['exito']) {

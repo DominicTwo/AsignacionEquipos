@@ -59,7 +59,7 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus, $procesado = 0) {
 }
 
 // Crea una solicitud
-function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id = null) {
+function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id = null, $id_origen = null) {
     
     $sql = "INSERT INTO solicitudes (id_usuario, tipo, nombre_asignado, area_destino, descripcion, equipo_id) 
             VALUES (?, ?, ?, ?, ?, ?)";
@@ -70,12 +70,23 @@ function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino
         return ["exito" => false, "mensaje" => "Error en la preparación de la consulta: " . $db->error];
     }
 
-
     $stmt->bind_param("sssssi", $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id);
 
     if ($stmt->execute()) {
         $id_nuevo = $stmt->insert_id;
         $stmt->close();
+
+        if ($id_origen !== null) {
+            $sql_update = "UPDATE solicitudes SET procesado = 1 WHERE id_solicitud = ?";
+            $stmt_update = $db->prepare($sql_update);
+            
+            if ($stmt_update) {
+                $stmt_update->bind_param("i", $id_origen);
+                $stmt_update->execute();
+                $stmt_update->close();
+            }
+        }
+
         return ["exito" => true, "mensaje" => "Solicitud creada correctamente", "id" => $id_nuevo];
     } else {
         $error = $stmt->error;
