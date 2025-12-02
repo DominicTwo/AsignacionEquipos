@@ -21,20 +21,27 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus, $procesado = 0) {
             LEFT JOIN 
                 inventario i ON s.equipo_id = i.id_equipo
             WHERE 
-                s.id_usuario = ? 
+                s.estatus = ? 
             AND 
-                s.estatus = ?
-            AND 
-                s.procesado = ? 
-            ORDER BY 
-                s.fecha_creacion DESC";
+                s.procesado = ?";
+
+    if ($id_usuario !== null) {
+        $sql .= " AND s.id_usuario = ?";
+    }
+
+    $sql .= " ORDER BY s.fecha_creacion DESC";
 
     $stmt = $db->prepare($sql);
     if ($stmt === false) {
         return [];
     }
 
-    $stmt->bind_param("ssi", $id_usuario, $estatus, $procesado);
+    if ($id_usuario !== null) {
+
+        $stmt->bind_param("sis", $estatus, $procesado, $id_usuario);
+    } else {
+        $stmt->bind_param("si", $estatus, $procesado);
+    }
     
     $stmt->execute();
     

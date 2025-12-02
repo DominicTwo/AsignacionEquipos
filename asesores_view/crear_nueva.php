@@ -21,22 +21,31 @@ switch ($type) {
     case 'asignacion':
         $titleMain = "Asignación";
         break;
+
     case 'cancelacion':
         $titleMain = "Cancelación";
-        $lista_solicitudes = array_merge($pendientes, $en_proceso);
+        
+        $todas_activas = array_merge($pendientes, $en_proceso);
+
+        $lista_solicitudes = array_filter($todas_activas, function($sol) {
+            return $sol['tipo'] !== 'cancelacion';
+        });
         break;
+
     case 'cambio':
         $titleMain = "Cambio";
         $lista_solicitudes = array_filter($completadas, function($sol) {
             return $sol['tipo'] === 'asignacion';
         });
         break;
+
     case 'baja':
         $titleMain = "Baja";
         $lista_solicitudes = array_filter($completadas, function($sol) {
             return $sol['tipo'] === 'asignacion';
         });
         break;
+
     default:
         $titleMain = "Desconocido";
         break;
