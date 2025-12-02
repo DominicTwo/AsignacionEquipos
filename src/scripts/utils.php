@@ -1,7 +1,7 @@
 <?php
 
 // Obtiene las solicitudes por estatus
-function getSolicitudesPorEstatus($db, $id_usuario, $estatus) {
+function getSolicitudesPorEstatus($db, $id_usuario, $estatus, $procesado = 0) {
     
     $sql = "SELECT 
                 s.id_solicitud,
@@ -24,6 +24,8 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus) {
                 s.id_usuario = ? 
             AND 
                 s.estatus = ?
+            AND 
+                s.procesado = ? 
             ORDER BY 
                 s.fecha_creacion DESC";
 
@@ -32,7 +34,8 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus) {
         return [];
     }
 
-    $stmt->bind_param("ss", $id_usuario, $estatus);
+    $stmt->bind_param("ssi", $id_usuario, $estatus, $procesado);
+    
     $stmt->execute();
     
     $result = $stmt->get_result();
@@ -47,6 +50,7 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus) {
     $stmt->close();
     return $solicitudes;
 }
+
 // Crea una solicitud
 function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id = null) {
     
