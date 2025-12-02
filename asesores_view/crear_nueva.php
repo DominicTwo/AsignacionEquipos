@@ -24,9 +24,7 @@ switch ($type) {
 
     case 'cancelacion':
         $titleMain = "Cancelación";
-        
         $todas_activas = array_merge($pendientes, $en_proceso);
-
         $lista_solicitudes = array_filter($todas_activas, function($sol) {
             return $sol['tipo'] !== 'cancelacion';
         });
@@ -35,14 +33,14 @@ switch ($type) {
     case 'cambio':
         $titleMain = "Cambio";
         $lista_solicitudes = array_filter($completadas, function($sol) {
-            return $sol['tipo'] === 'asignacion';
+            return $sol['tipo'] === 'asignacion' || $sol['tipo'] === 'cambio';
         });
         break;
 
     case 'baja':
         $titleMain = "Baja";
         $lista_solicitudes = array_filter($completadas, function($sol) {
-            return $sol['tipo'] === 'asignacion';
+            return $sol['tipo'] === 'asignacion' || $sol['tipo'] === 'cambio';
         });
         break;
 
