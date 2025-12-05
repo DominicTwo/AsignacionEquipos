@@ -1,9 +1,12 @@
 <?php
+header("Refresh:180"); 
+
 require_once '../auth.php';
 proteger_ruta(['asesor']);
 
 require '../db/db.php';
 require '../src/scripts/utils.php';
+
 
 $id_usuario_logueado = $_SESSION['user_id'];
 
