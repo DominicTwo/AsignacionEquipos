@@ -14,6 +14,7 @@ $respuesta = [
 $sql = "SELECT tipo, COUNT(*) as total 
         FROM solicitudes 
         WHERE estatus != 'completado' 
+        AND procesado = 0 
         GROUP BY tipo";
 
 $resultado = $db->query($sql);
