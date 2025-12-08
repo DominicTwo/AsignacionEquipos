@@ -1,7 +1,7 @@
 <?php
 
 // Obtiene las solicitudes por estatus
-function getSolicitudesPorEstatus($db, $id_usuario, $estatus, $procesado = 0) {
+function getSolicitudesPorEstatus($db, $id_usuario, $estatus) {
     
     $sql = "SELECT 
                 s.id_solicitud,
@@ -21,28 +21,18 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus, $procesado = 0) {
             LEFT JOIN 
                 inventario i ON s.equipo_id = i.id_equipo
             WHERE 
-                s.estatus = ? 
+                s.id_usuario = ? 
             AND 
-                s.procesado = ?";
-
-    if ($id_usuario !== null) {
-        $sql .= " AND s.id_usuario = ?";
-    }
-
-    $sql .= " ORDER BY s.fecha_creacion DESC";
+                s.estatus = ?
+            ORDER BY 
+                s.fecha_creacion DESC";
 
     $stmt = $db->prepare($sql);
     if ($stmt === false) {
         return [];
     }
 
-    if ($id_usuario !== null) {
-
-        $stmt->bind_param("sis", $estatus, $procesado, $id_usuario);
-    } else {
-        $stmt->bind_param("si", $estatus, $procesado);
-    }
-    
+    $stmt->bind_param("ss", $id_usuario, $estatus);
     $stmt->execute();
     
     $result = $stmt->get_result();
@@ -57,9 +47,8 @@ function getSolicitudesPorEstatus($db, $id_usuario, $estatus, $procesado = 0) {
     $stmt->close();
     return $solicitudes;
 }
-
 // Crea una solicitud
-function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id = null, $id_origen = null) {
+function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id = null) {
     
     $sql = "INSERT INTO solicitudes (id_usuario, tipo, nombre_asignado, area_destino, descripcion, equipo_id) 
             VALUES (?, ?, ?, ?, ?, ?)";
@@ -70,23 +59,12 @@ function crearSolicitud($db, $id_usuario, $tipo, $nombre_asignado, $area_destino
         return ["exito" => false, "mensaje" => "Error en la preparación de la consulta: " . $db->error];
     }
 
+
     $stmt->bind_param("sssssi", $id_usuario, $tipo, $nombre_asignado, $area_destino, $descripcion, $equipo_id);
 
     if ($stmt->execute()) {
         $id_nuevo = $stmt->insert_id;
         $stmt->close();
-
-        if ($id_origen !== null) {
-            $sql_update = "UPDATE solicitudes SET procesado = 1 WHERE id_solicitud = ?";
-            $stmt_update = $db->prepare($sql_update);
-            
-            if ($stmt_update) {
-                $stmt_update->bind_param("i", $id_origen);
-                $stmt_update->execute();
-                $stmt_update->close();
-            }
-        }
-
         return ["exito" => true, "mensaje" => "Solicitud creada correctamente", "id" => $id_nuevo];
     } else {
         $error = $stmt->error;
