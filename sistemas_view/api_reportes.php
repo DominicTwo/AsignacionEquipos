@@ -29,7 +29,9 @@ $sql = "SELECT
             u.nombre AS nombre_solicitante
         FROM solicitudes s
         LEFT JOIN usuarios u ON s.id_usuario = u.id_usuario
+        WHERE s.estatus != 'completado'
         ORDER BY s.fecha_creacion DESC";
+
 
 $result = $db->query($sql);
 $solicitudes = [];

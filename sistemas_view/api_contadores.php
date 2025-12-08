@@ -13,8 +13,7 @@ $respuesta = [
 // 2. Consulta agrupada (Muy rápida)
 $sql = "SELECT tipo, COUNT(*) as total 
         FROM solicitudes 
-        WHERE estatus != 'completado' 
-        AND procesado = 0 
+        WHERE estatus != 'completado' AND procesado = 0
         GROUP BY tipo";
 
 $resultado = $db->query($sql);
