@@ -3,9 +3,7 @@
     // proteger_ruta(['sistemas']); 
     include '../src/templates/Navbar.php';
     require '../db/db.php';
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -311,16 +309,13 @@
         pausarUpdate = false;
     }
 
+    // INICIO Y  REINICIO DEL PROCESO 
 
-
-    // 4. INICIO Y CICLO DE VIDA
-
-    
     // Primera carga inmediata
     cargarContadores();
     cargarReportes();
 
-    // Ciclo infinito (cada 5 segundos)
+    // Ciclo infinito (cada 5 segundos pa que se vea el cambio xd)
     setInterval(() => {
         cargarContadores();
         cargarReportes(); 
