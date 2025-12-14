@@ -1,163 +1,276 @@
-
 :root {
+
   --asignacion: #702489;
   --cambio: #488f2d;
   --cancelacion: #c76719; 
   --baja: #863543;
+  
+
+  --fondo-body: #f4f4f4;
+  --texto-oscuro: #333;
+  --blanco: #ffffff;
+  
 }
 
+* {
+  box-sizing: border-box; 
+}
 
 body {                
-  flex-direction: column;
-  padding: 20px;     
-  
-  scroll-behavior: smooth;
-  background-color: #f4f4f4;
-}
-
-.main-cards-sistemas {
-  height: auto;
-  min-width: 85%;
-  width: auto;
-  margin: 1%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 1%;
-}
-
-.title-card {
-  font-size: 1.5rem;
-  color: var(--color4);
   margin: 0;
+  padding: 0;
+  padding-top: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--fondo-body);
+  color: var(--texto-oscuro);
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+
+/* =========================================
+      TARJETAS DE CONTADORES 
+   ========================================= */
+.main-cards-sistemas {
+  display: flex;
+  justify-content: center; 
+  align-items: stretch; 
+  flex-wrap: wrap; 
+  gap: 20px;
+  
+  width: 95%; 
+  max-width: 1400px; 
+  margin: 30px auto;
 }
 
 .card-content {
-  width: 20%;
-  height: 50%;;
-  padding: 1%;
-  margin: 1%;
-
-  display: flex;
-  justify-content: space-between;
+  flex: 1; 
+  min-width: 260px; 
   
-  align-items: center;
- 
-  border-radius: 5px;
-
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-}
-
-.count-all{
-  font-size: 2rem;
-  color: var(--color4);
-  margin: 0;
-  padding: 0;
-}
-
-
-.asignacion-card {
-  background-color: var(--asignacion);
-}
-
-.cambio-card{
-  background-color: var(--cambio);
-}
-
-.cancelacion-card{
-  background-color:var(--cancelacion);
-}
-
-.bajas-card{
-  background-color: var(--baja);
-}
-
-.view-reports-sistemas{
-  width: 90%;
-  margin: 1%;
-  height: auto;
-  min-height: 10%;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-
   flex-direction: column;
-
-  border-radius: 5px;
-
-  background-color: var(--color4);
-
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-}
-
-.report-info{
-  position: relative;
-  width: 98%;
-  height: auto;
-  margin: 1%;
-
-  color: var(--color1);
-
-  display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-
-  border-radius: 3px;
-
-  box-shadow: 1px 3px 3px #0000003e;
-
+  
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  color: var(--blanco);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.report-info ::before {
+
+.card-content:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.asignacion-card { 
+  background: linear-gradient(135deg, var(--asignacion), #5a1d6e); 
+}
+.cambio-card     { 
+  background: linear-gradient(135deg, var(--cambio), #366b22); 
+}
+.cancelacion-card{ 
+  background: linear-gradient(135deg, var(--cancelacion), #a35414); 
+}
+.bajas-card      { 
+  background: linear-gradient(135deg, var(--baja), #632731); 
+}
+
+.title-card {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.count-main {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 15px 0;
+  line-height: 1;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.card-details {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2); 
+  border-radius: 8px;
+  padding: 10px;
+  
+  display: flex;
+  justify-content: space-around;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail-item span:first-child {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.detail-num {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* =========================================
+       LISTA DE SOLICITUDES
+   ========================================= */
+.view-reports-sistemas {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto 40px auto;
+  
+  background-color: var(--blanco);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.report-info {
+  width: 100%;
+  position: relative;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 1px solid #eee;
+  
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: background-color 0.2s;
+}
+
+.report-info:hover {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+.report-info::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
+  bottom: 0;
   width: 6px;
-  height: 100%;
-  background-color: var(--color-borde, #ccc);
-  border-radius:  10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
 }
-
-.report-info.asignacion ::before {
-  background-color: var(--asignacion); /* Morado */
+/* Colores de la barra lateral */
+.report-info.asignacion::before {
+   background-color: var(--asignacion);
+   }
+.report-info.cambio::before     { 
+  background-color: var(--cambio); 
 }
-
-.report-info.cambio ::before {
-  background-color: var(--cambio); /* Verde */
+.report-info.cancelacion::before{ 
+  background-color: var(--cancelacion); 
 }
-
-.report-info.cancelacion ::before {
-  background-color: var(--cancelacion); /* Naranja */
+.report-info.baja::before       { 
+  background-color: var(--baja); 
 }
-
-.report-info.baja ::before {
-  background-color: var(--baja); /* Rojo */
-}
-
 
 .report-section {
+  flex: 1; 
+  min-width: 200px;
+  padding: 0 15px;
+  margin-bottom: 10px;
+  
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.report-column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.text-info {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #555;
+  line-height: 1.4;
+}
+
+
+select.text-info {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* =========================================
+  VENTANA  de confirmacion :D
+   ========================================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  backdrop-filter: blur(3px);
+  z-index: 2000; 
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
-  height: auto;
-  padding: .5%;
-  margin: 1%;
-  border: 1px solid red;
 }
 
-.report-column{
-  width: 50%;
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: popIn 0.3s ease;
 }
 
-
-.text-info{
-  font-size: 12px;
-  margin: 1%;
-  color: #0000007e;
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
+
+.modal-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-si, .btn-no {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.btn-si { background: #28a745; color: white; }
+.btn-no { background: #dc3545; color: white; }
+.btn-si:hover, .btn-no:hover { transform: scale(1.05); }
 

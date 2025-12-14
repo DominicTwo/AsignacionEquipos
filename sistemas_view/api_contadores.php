@@ -2,31 +2,46 @@
 header('Content-Type: application/json');
 require '../db/db.php'; 
 
-// 1. Array base con tus tipos exactos (singular, minúscula) inicializados en 0
-$respuesta = [
-    'asignacion'  => 0,
-    'cambio'      => 0,
-    'cancelacion' => 0,
-    'baja'        => 0
-];
+// 1. Inicializamos la estructura base para garantizar que siempre existan los datos
+//    aunque sean 0.
+$tipos = ['asignacion', 'cambio', 'cancelacion', 'baja'];
+$respuesta = [];
 
-// 2. Consulta agrupada (Muy rápida)
-$sql = "SELECT tipo, COUNT(*) as total 
+foreach ($tipos as $tipo) {
+    $respuesta[$tipo] = [
+        'pendiente' => 0,
+        'en proceso' => 0,
+        'total' => 0
+    ];
+}
+
+// 2. Consulta agrupada por TIPO y ESTATUS
+//    Solo contamos lo que NO está completado (según tu lógica actual)
+$sql = "SELECT tipo, estatus, COUNT(*) as cantidad 
         FROM solicitudes 
-        WHERE estatus != 'completado' AND procesado = 0
-        GROUP BY tipo";
+        WHERE estatus != 'completado'
+        GROUP BY tipo, estatus";
 
 $resultado = $db->query($sql);
+
 if ($resultado) {
     while ($fila = $resultado->fetch_assoc()) {
-        $tipo = $fila['tipo'];
-        // Actualizar el conteo en el array de respuesta
-        if (isset($respuesta[$tipo])) {
-            $respuesta[$tipo] = $fila['total'];
+        $t = $fila['tipo'];       // ejemplo: 'asignacion'
+        $e = $fila['estatus'];    // ejemplo: 'pendiente' o 'en proceso'
+        $cant = (int)$fila['cantidad'];
+
+        // Verificamos que el tipo exista en nuestro array para evitar errores
+        if (isset($respuesta[$t])) {
+            // Guardamos la cantidad específica (pendiente o en proceso)
+            if (isset($respuesta[$t][$e])) {
+                $respuesta[$t][$e] = $cant;
+            }
+            // Sumamos al total de esa categoría
+            $respuesta[$t]['total'] += $cant;
         }
     }
 }
 
-// 3. Devolver JSON limpio
+// 3. Devolver JSON estructurado
 echo json_encode($respuesta);
 ?>
