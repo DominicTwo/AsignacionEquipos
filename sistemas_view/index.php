@@ -1,6 +1,6 @@
 <?php
-    // require_once '../auth.php';
-    // proteger_ruta(['sistemas']); 
+    require_once '../auth.php';
+    proteger_ruta(['sistemas']); 
     include '../src/templates/Navbar.php';
     require '../db/db.php';
 ?>
